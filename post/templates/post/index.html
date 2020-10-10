@@ -1,0 +1,14 @@
+{%load static%}
+<ul>
+    {%for post in posts%}
+    <li>{{post.description}}</li>
+    <li></li>
+    <video width="360" height="320" controls="controls">
+          <source src="{{post.video.url}}" type="video/mp4" />
+          Tarayıcınız video etiketini desteklemiyor.
+        </video>
+      <a href="{% url 'userprofile:detail' post.author.slug %}">
+    <li>{{post.author}}</li>
+      </a>
+    {%endfor%}
+</ul>

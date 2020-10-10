@@ -1,0 +1,17 @@
+{{user.username}}
+<br>Takip ettikleri: {{follow|length}}
+{{follow}}
+<br>Takip Edenler: {{follower|length}}
+{{follower}}
+
+{%if request.user == user%}
+<p></p>
+
+{%else%}
+
+    {%if isActive%}
+        <a href="{% url 'account:follow_user' user.username %}">Takip Et</a>
+    {%else%}
+        <a href="{% url 'account:unfollow_user' user.username %}">Takipten Çık</a>
+    {%endif%}
+{%endif%}
